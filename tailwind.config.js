@@ -1,6 +1,12 @@
+/**
+ * Design tokens. Colours resolve from the CSS vars in src/global.css.
+ * Also maps react-native-reusables' class names onto our tokens; `brass` is
+ * ours because RNR uses `accent` to mean "press background".
+ */
+
 /** @type {import('tailwindcss').Config} */
-// Colors resolve from the CSS variables in src/global.css, so `bg-surface-canvas`
-// is correct in both themes and dark mode needs no `dark:` variant.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
@@ -8,35 +14,78 @@ module.exports = {
     extend: {
       colors: {
         surface: {
-          canvas: "rgb(var(--surface-canvas) / <alpha-value>)",
-          raised: "rgb(var(--surface-raised) / <alpha-value>)",
-          sunken: "rgb(var(--surface-sunken) / <alpha-value>)",
-          divider: "rgb(var(--surface-divider) / <alpha-value>)",
+          canvas: token("surface-canvas"),
+          raised: token("surface-raised"),
+          sunken: token("surface-sunken"),
+          divider: token("surface-divider"),
         },
         text: {
-          primary: "rgb(var(--text-primary) / <alpha-value>)",
-          secondary: "rgb(var(--text-secondary) / <alpha-value>)",
-          muted: "rgb(var(--text-muted) / <alpha-value>)",
-          onBrand: "rgb(var(--text-on-brand) / <alpha-value>)",
+          primary: token("text-primary"),
+          secondary: token("text-secondary"),
+          muted: token("text-muted"),
+          onBrand: token("text-on-brand"),
         },
         brand: {
-          DEFAULT: "rgb(var(--brand-default) / <alpha-value>)",
-          pressed: "rgb(var(--brand-pressed) / <alpha-value>)",
-          tint: "rgb(var(--brand-tint) / <alpha-value>)",
+          DEFAULT: token("brand-default"),
+          pressed: token("brand-pressed"),
+          tint: token("brand-tint"),
         },
-        accent: {
-          DEFAULT: "rgb(var(--accent-default) / <alpha-value>)",
-          strong: "rgb(var(--accent-strong) / <alpha-value>)",
+        brass: {
+          DEFAULT: token("brass-default"),
+          strong: token("brass-strong"),
         },
         state: {
-          danger: "rgb(var(--state-danger) / <alpha-value>)",
+          danger: token("state-danger"),
         },
+
+        background: token("surface-canvas"),
+        foreground: token("text-primary"),
+        card: {
+          DEFAULT: token("surface-raised"),
+          foreground: token("text-primary"),
+        },
+        popover: {
+          DEFAULT: token("surface-raised"),
+          foreground: token("text-primary"),
+        },
+        primary: {
+          DEFAULT: token("brand-default"),
+          foreground: token("text-on-brand"),
+        },
+        secondary: {
+          DEFAULT: token("surface-sunken"),
+          foreground: token("text-primary"),
+        },
+        muted: {
+          DEFAULT: token("surface-sunken"),
+          foreground: token("text-muted"),
+        },
+        accent: {
+          DEFAULT: token("surface-sunken"),
+          foreground: token("text-primary"),
+        },
+        destructive: {
+          DEFAULT: token("state-danger"),
+          foreground: token("text-on-brand"),
+        },
+        border: token("surface-divider"),
+        input: token("surface-divider"),
+        ring: token("brand-default"),
+      },
+      borderRadius: {
+        sm: "8px",
+        md: "12px",
+        lg: "16px",
+        bubble: "18px",
+        pill: "9999px",
       },
       fontFamily: {
-        serif: ["SourceSerif4"], // translation layer + wordmark
-        uthmanic: ["UthmanicHafs"], // Qur'anic Arabic. Bundled, never fetched.
+        sans: ["Inter"],
+        "sans-medium": ["Inter-Medium"],
+        serif: ["SourceSerif4"],
+        uthmanic: ["UthmanicHafs"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
