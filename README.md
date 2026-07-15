@@ -1,56 +1,39 @@
-# Welcome to your Expo app 👋
+# Tadabbur
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Bring your questions to the Qur'an.**
 
-## Get started
+Tadabbur is a Qur'an chat and reading app. You ask a question in plain language,
+and you read the answer in the text itself. The name means *tadabbur*, the
+reflective pondering of the Qur'an that the text asks of every believer. It is
+deliberately not *tafsir*, the scholarly discipline. The app points you toward the
+text; it never claims to interpret it for you.
 
-1. Install dependencies
+Built with Expo (React Native), NativeWind, and TypeScript.
 
-   ```bash
-   npm install
-   ```
+## Design Journey
 
-2. Start the app
+### Onboarding
 
-   ```bash
-   npx expo start
-   ```
+The onboarding sets the tone for the whole app: quiet and reflective, never loud.
+Early on we faced a clear choice about the visuals. Many faith apps lean on
+photographs, like a mosque at sunset or an image of the Kaaba, to feel spiritual and
+to hold your attention. We chose not to. Using a sacred place as background
+decoration, just to keep someone's eyes on a screen, felt wrong, and those images
+have become a cliché that makes every app look the same. So we followed the older
+tradition of Islamic art, which reaches for geometry and pattern instead of pictures.
 
-In the output, you'll find options to open the app in a
+That led us to the eight-pointed *khatim* star, a classic motif from Islamic
+geometry. It rests very faintly behind the opening screens. It is present enough to
+feel considered and unmistakably Islamic, yet quiet enough that it never competes
+with the words. It carries the same sense of place a photograph would, without
+borrowing anything sacred to do it.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The rest of the flow keeps the same restraint. We ask a few gentle questions before
+sign-in, so a person arrives with intent rather than meeting a login wall first. The
+"preparing your plan" moment shows honest progress instead of the fake loading bars
+and growth charts you often see elsewhere. The app opens with the Bismillah, and it
+follows your phone's own light or dark setting so it feels at home either way. The
+guiding rule throughout is simple: point to the text, never perform.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+*This covers the onboarding flow. The journey for the remaining parts of the app
+will be added here as they are built.*

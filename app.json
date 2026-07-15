@@ -28,7 +28,10 @@
           "image": "./assets/images/tadabbur/tadabbur-icon-foreground.png",
           "imageWidth": 120
         }
-      ]
+      ],
+      "expo-image",
+      "expo-status-bar",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
