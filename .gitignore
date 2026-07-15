@@ -42,3 +42,5 @@ example
 /ios
 /android
 promptfix.md
+# test build output
+.test-out/
