@@ -1,9 +1,53 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Semantic tokens only. Components never reference a hex.
+   Both themes are designed, not derived — dark is not an inversion of light. */
+@layer base {
+  /* paper — light */
+  :root {
+    --surface-canvas: 251 248 243; /* #FBF8F3 */
+    --surface-raised: 255 255 255; /* #FFFFFF */
+    --surface-sunken: 243 239 231; /* #F3EFE7 */
+    --surface-divider: 229 223 212; /* #E5DFD4 */
+
+    --text-primary: 26 24 21; /* #1A1815 */
+    --text-secondary: 107 100 89; /* #6B6459 */
+    --text-muted: 115 109 89; /* #736D59 */
+    --text-on-brand: 243 239 231; /* #F3EFE7 */
+
+    --brand-default: 20 73 60; /* #14493C */
+    --brand-pressed: 15 58 48; /* #0F3A30 */
+    --brand-tint: 231 239 235; /* #E7EFEB */
+
+    --accent-default: 180 136 77; /* #B4884D */
+    --accent-strong: 138 102 54; /* #8A6636 */
+
+    --state-danger: 155 58 46; /* #9B3A2E */
+  }
+
+  /* sakīnah — dark. Never #000000. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-canvas: 16 18 15; /* #10120F */
+      --surface-raised: 24 27 23; /* #181B17 */
+      --surface-sunken: 30 34 28; /* #1E221C */
+      --surface-divider: 42 46 40; /* #2A2E28 */
+
+      --text-primary: 237 232 223; /* #EDE8DF */
+      --text-secondary: 163 156 142; /* #A39C8E */
+      --text-muted: 141 135 119; /* #8D8777 */
+      --text-on-brand: 11 20 15; /* #0B140F */
+
+      --brand-default: 95 168 143; /* #5FA88F */
+      --brand-pressed: 76 139 118; /* #4C8B76 */
+      --brand-tint: 22 36 30; /* #16241E */
+
+      --accent-default: 217 174 110; /* #D9AE6E */
+      --accent-strong: 232 196 140; /* #E8C48C */
+
+      --state-danger: 217 122 107; /* #D97A6B */
+    }
+  }
 }

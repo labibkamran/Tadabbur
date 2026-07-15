@@ -1,0 +1,8 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Tadabbur adaptive icon foreground</title>
+<desc>The mihrab arch and brass rule, scaled inside the Android adaptive-icon safe zone, on transparency.</desc>
+<g transform="translate(512,512) scale(0.85) translate(-512,-502.69)">
+<path d="M223.42 744.73 L223.42 465.45 Q223.42 223.42 512 167.56 Q800.58 223.42 800.58 465.45 L800.58 744.73 Z" fill="#FBF8F3"/>
+<rect x="223.42" y="809.89" width="577.16" height="27.93" rx="13.96" fill="#B4884D"/>
+</g>
+</svg>
