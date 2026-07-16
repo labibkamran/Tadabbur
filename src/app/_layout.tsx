@@ -15,6 +15,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useColorScheme } from "nativewind";
 import { useEffect, useMemo } from "react";
 import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.preventAutoHideAsync();
@@ -45,14 +46,16 @@ export default function RootLayout() {
   if (!loaded) return null;
 
   return (
-    <SafeAreaProvider>
-      <ArabicScaleProvider>
-        <ThemeProvider value={navTheme}>
-          <View className="flex-1 bg-surface-canvas">
-            <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
-          </View>
-        </ThemeProvider>
-      </ArabicScaleProvider>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <ArabicScaleProvider>
+          <ThemeProvider value={navTheme}>
+            <View className="flex-1 bg-surface-canvas">
+              <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
+            </View>
+          </ThemeProvider>
+        </ArabicScaleProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }

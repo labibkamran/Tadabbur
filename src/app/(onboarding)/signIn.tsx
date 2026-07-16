@@ -31,7 +31,7 @@ export default function SignIn() {
         </Text>
       </View>
       <View className="gap-3.5 px-5 pb-6">
-        <Button variant="outline" className="w-full gap-2.5" onPress={() => router.replace("/home")}>
+        <Button variant="outline" className="w-full gap-2.5" onPress={() => router.replace("/today")}>
           <GoogleMark size={18} />
           <Text>Continue with Google</Text>
         </Button>

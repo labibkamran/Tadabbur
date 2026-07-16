@@ -24,9 +24,13 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#14493C",
-          "image": "./assets/images/tadabbur/tadabbur-icon-foreground.png",
-          "imageWidth": 120
+          "backgroundColor": "#FBF8F3",
+          "image": "./assets/images/tadabbur/tadabbur-icon.png",
+          "imageWidth": 120,
+          "dark": {
+            "backgroundColor": "#10120F",
+            "image": "./assets/images/tadabbur/tadabbur-icon.png"
+          }
         }
       ],
       "expo-image",
