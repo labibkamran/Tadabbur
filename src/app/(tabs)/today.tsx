@@ -6,10 +6,13 @@
 import { Chip } from "@/components/chip";
 import { FadeInView } from "@/components/fadeInView";
 import { Screen } from "@/components/screen";
+import { AsmaCard } from "@/components/today/asmaCard";
 import { GreetingHeader } from "@/components/today/greetingHeader";
+import { SakinaInvite } from "@/components/today/sakinaInvite";
 import { WeekStrip } from "@/components/today/weekStrip";
 import { Text } from "@/components/ui/text";
 import { VerseCard } from "@/components/verseCard";
+import { ASMA_UL_HUSNA } from "@/data/curated/asmaulhusna";
 import { GREETING, REFLECTION } from "@/data/curated/today";
 import { VERSE_OF_THE_DAY } from "@/data/curated/verses";
 import { router } from "expo-router";
@@ -28,9 +31,12 @@ export default function Today() {
   const todayIndex = (now.getDay() + 6) % 7;
   const opened = Array.from({ length: 7 }, (_, i) => i < todayIndex && i >= todayIndex - 2);
 
+  const dayNumber = Math.floor(now.getTime() / 86400000);
+  const name = ASMA_UL_HUSNA[dayNumber % ASMA_UL_HUSNA.length];
+
   return (
     <Screen bottom={false}>
-      <ScrollView contentContainerClassName="gap-5 p-4" showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerClassName="gap-7 p-4" showsVerticalScrollIndicator={false}>
         <FadeInView delay={0}>
           <GreetingHeader date={date} greeting={GREETING} initials="YA" />
         </FadeInView>
@@ -60,6 +66,19 @@ export default function Today() {
             <Chip label="Ask about this verse" onPress={() => router.push("/ask")} />
             <Chip label="Read in context" onPress={() => router.push("/read")} />
           </View>
+        </FadeInView>
+
+        <FadeInView delay={420}>
+          <View className="gap-2.5">
+            <Text variant="caption" className="text-text-muted">
+              Today's name of Allah
+            </Text>
+            <AsmaCard name={name} />
+          </View>
+        </FadeInView>
+
+        <FadeInView delay={520}>
+          <SakinaInvite />
         </FadeInView>
       </ScrollView>
     </Screen>

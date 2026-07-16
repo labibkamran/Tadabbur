@@ -35,5 +35,29 @@ and growth charts you often see elsewhere. The app opens with the Bismillah, and
 follows your phone's own light or dark setting so it feels at home either way. The
 guiding rule throughout is simple: point to the text, never perform.
 
-*This covers the onboarding flow. The journey for the remaining parts of the app
-will be added here as they are built.*
+### Today
+
+Today is the first thing a person sees each time they open the app, so it sets the
+mood. We wanted it calm above all else, closer to a quiet moment than a busy home
+page. The heart of the screen is a single verse of the day, with room to breathe
+around it. Early on we let go of the usual home-screen habits. There are no streaks
+to keep, no numbers, no daily goals. The small week strip at the top only marks the
+days you have opened the app, as a gentle record of returning rather than a target
+you can fail.
+
+The hardest question was the empty space below the verse. Our first instinct was to
+fill it, and we tried a faint background pattern. It did not work. On a dark screen
+it pulled the eye away from the verse, and decoration was never really the point. So
+we changed the approach. Instead of filling the space with decoration, we filled it
+with meaning: a name of Allah for the day, drawn from the ninety-nine, and a soft
+invitation to take a moment and open the Sakina session. One gives you something to
+reflect on, the other opens a door to calm. Neither is a statistic or a feature card.
+
+Through all of this we kept the verse as the clear center of the screen. The name of
+Allah sits in a lighter, quieter card so it never competes with the verse above it.
+And like the rest of the app, everything here is hand chosen and works offline.
+Nothing on this screen talks to the AI, so there is never anything to disclaim. The
+result is a home that feels full and warm without ever becoming a dashboard.
+
+*This covers onboarding and the Today screen. The journey for the remaining parts of
+the app will be added here as they are built.*
