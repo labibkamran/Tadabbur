@@ -9,6 +9,9 @@ const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  // 'class' lets the Profile theme control force Paper/Night via setColorScheme; 'system'
+  // still follows the OS. NativeWind maps the prefers-color-scheme block to the dark variant.
+  darkMode: "class",
   presets: [require("nativewind/preset")],
   theme: {
     extend: {

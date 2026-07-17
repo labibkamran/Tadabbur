@@ -38,7 +38,12 @@ export default function Today() {
     <Screen bottom={false}>
       <ScrollView contentContainerClassName="gap-7 p-4" showsVerticalScrollIndicator={false}>
         <FadeInView delay={0}>
-          <GreetingHeader date={date} greeting={GREETING} initials="YA" />
+          <GreetingHeader
+            date={date}
+            greeting={GREETING}
+            initials="YA"
+            onAvatarPress={() => router.push("/profile")}
+          />
         </FadeInView>
 
         <FadeInView delay={100}>

@@ -59,5 +59,33 @@ And like the rest of the app, everything here is hand chosen and works offline.
 Nothing on this screen talks to the AI, so there is never anything to disclaim. The
 result is a home that feels full and warm without ever becoming a dashboard.
 
-*This covers onboarding and the Today screen. The journey for the remaining parts of
-the app will be added here as they are built.*
+### Sakina
+
+Sakina is for the harder moments, the ones that often come late at night when a
+person may not even have the words. It has two parts. First a quiet screen that
+simply asks how you are feeling and offers a small set of plain words to choose from.
+We kept it to words alone, with no emoji, no colours, no sliders. Those things make
+real feeling look small or clinical, and this is the one screen where that would
+matter most. Under each word we added a short line of recognition, like "when the
+mind won't settle", so a person feels seen rather than sorted. Naming a hard feeling
+honestly, even shame or fear, is part of the point, so we did not soften the words.
+
+Choosing a feeling opens a short guided session. It moves slowly through a few steps:
+a moment to breathe, a verse chosen for that feeling, and then time to repeat the
+verse gently while it settles. This is the heart of it. The way the tradition calms
+the heart is through repetition, so the session lets you recite the verse a few
+times, counting each one softly, the way you would with prayer beads. We were careful
+about one thing especially: the repetition is always from the Qur'an itself, the
+verse's own words, never something borrowed from outside it. The whole app points to
+the Qur'an, and this screen keeps that promise even in its quietest moment.
+
+Above all, Sakina had to be safe. There is a way to leave on every step, always in
+view, because a screen that holds someone in place when they are struggling has
+failed them. Nothing is saved and nothing accumulates, so there is no pressure to
+return and nothing to break. Each feeling carries its own verse, and because these
+are sacred words, every one is checked against a trusted source before it is shown.
+The goal was never to fix a feeling, only to sit beside it for a moment and point, as
+gently as it can, back to the text.
+
+*This covers onboarding, the Today screen, and Sakina. The journey for the remaining
+parts of the app will be added here as they are built.*

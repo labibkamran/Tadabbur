@@ -8,6 +8,7 @@ export const ARABIC_SCALE_MIN = 0.85;
 export const ARABIC_SCALE_MAX = 1.4;
 
 export const ARABIC_SIZE = {
+  name: 19,
   verse: 24,
   verseLarge: 30,
 } as const;

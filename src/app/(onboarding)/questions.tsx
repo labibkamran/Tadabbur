@@ -6,6 +6,7 @@
 
 import { OnboardingQuestion } from "@/components/onboarding/onboardingQuestion";
 import { ONBOARDING_QUESTIONS } from "@/data/onboarding";
+import { goBack } from "@/lib/nav";
 import type { OnboardingAnswers } from "@/types/onboarding";
 import { router } from "expo-router";
 import { useEffect, useRef, useState } from "react";
@@ -31,7 +32,7 @@ export default function Questions() {
   };
 
   const back = () => {
-    if (step === 0) router.back();
+    if (step === 0) goBack("/");
     else setStep((s) => s - 1);
   };
 

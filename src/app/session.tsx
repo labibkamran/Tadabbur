@@ -13,6 +13,7 @@ import { TapHint } from "@/components/session/tapHint";
 import { Screen } from "@/components/screen";
 import { Icon } from "@/components/ui/icon";
 import { getSessionEntry } from "@/data/curated/sakina";
+import { goBack } from "@/lib/nav";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { IconX } from "@tabler/icons-react-native";
 import { router, useLocalSearchParams } from "expo-router";
@@ -59,7 +60,7 @@ export default function Session() {
           <SessionProgress beat={beat} total={TOTAL} />
         </View>
         <Pressable
-          onPress={() => router.back()}
+          onPress={() => goBack("/sakina")}
           accessibilityRole="button"
           accessibilityLabel="Close"
           className="-mr-2.5 size-11 items-center justify-center active:opacity-60"

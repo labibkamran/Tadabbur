@@ -6,6 +6,7 @@
 import "@/global.css";
 
 import { ArabicScaleProvider } from "@/lib/useArabicScale";
+import { ThemePreferenceProvider } from "@/lib/useThemePreference";
 import { useVarColor } from "@/lib/useVarColor";
 import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
 import { SourceSerif4_400Regular } from "@expo-google-fonts/source-serif-4";
@@ -49,11 +50,16 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <ArabicScaleProvider>
-          <ThemeProvider value={navTheme}>
-            <View className="flex-1 bg-surface-canvas">
-              <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
-            </View>
-          </ThemeProvider>
+          <ThemePreferenceProvider>
+            <ThemeProvider value={navTheme}>
+              <View className="flex-1 bg-surface-canvas">
+                <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
+                  <Stack.Screen name="history" options={{ presentation: "modal" }} />
+                  <Stack.Screen name="profile" options={{ presentation: "modal" }} />
+                </Stack>
+              </View>
+            </ThemeProvider>
+          </ThemePreferenceProvider>
         </ArabicScaleProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
