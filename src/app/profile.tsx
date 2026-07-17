@@ -12,9 +12,11 @@ import { Text } from "@/components/ui/text";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggleGroup";
 import { loadSurah } from "@/data/curated/quran";
 import { goBack } from "@/lib/nav";
+import { useAuth } from "@/lib/useAuth";
 import { useArabicScale } from "@/lib/useArabicScale";
 import { useThemePreference, type ThemeChoice } from "@/lib/useThemePreference";
 import { IconX } from "@tabler/icons-react-native";
+import { router } from "expo-router";
 import { useMemo } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 
@@ -40,7 +42,16 @@ function nearestStep(scale: number) {
 export default function Profile() {
   const { scale, setScale } = useArabicScale();
   const { choice, setChoice } = useThemePreference();
+  const { session, signOut, profile, initials } = useAuth();
   const bismillah = useMemo(() => loadSurah(1)[0]?.arabic ?? "", []);
+
+  const name = profile?.name ?? "Guest";
+  const subtitle = profile?.email ?? "Reading as a guest";
+
+  const onSignOut = async () => {
+    await signOut();
+    router.replace("/");
+  };
 
   return (
     <Screen>
@@ -63,15 +74,15 @@ export default function Profile() {
           <Avatar alt="Profile" className="size-16">
             <AvatarFallback>
               <Text variant="title" className="text-brand">
-                YA
+                {initials}
               </Text>
             </AvatarFallback>
           </Avatar>
           <Text variant="body" className="font-sans-medium">
-            Guest
+            {name}
           </Text>
           <Text variant="caption" className="text-text-muted">
-            Reading as a guest
+            {subtitle}
           </Text>
         </View>
 
@@ -135,6 +146,19 @@ export default function Profile() {
           <AboutRow label="Translation" value="Saheeh International" />
           <AboutRow label="Version" value="1.0.0" />
         </View>
+
+        {session ? (
+          <Pressable
+            onPress={onSignOut}
+            accessibilityRole="button"
+            accessibilityLabel="Sign out"
+            className="min-h-11 flex-row items-center justify-center active:opacity-60"
+          >
+            <Text variant="body" className="text-state-danger">
+              Sign out
+            </Text>
+          </Pressable>
+        ) : null}
       </ScrollView>
     </Screen>
   );

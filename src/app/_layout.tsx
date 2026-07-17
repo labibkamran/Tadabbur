@@ -6,6 +6,7 @@
 import "@/global.css";
 
 import { ArabicScaleProvider } from "@/lib/useArabicScale";
+import { AuthProvider } from "@/lib/useAuth";
 import { ThemePreferenceProvider } from "@/lib/useThemePreference";
 import { useVarColor } from "@/lib/useVarColor";
 import { Inter_400Regular, Inter_500Medium } from "@expo-google-fonts/inter";
@@ -49,6 +50,7 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
+        <AuthProvider>
         <ArabicScaleProvider>
           <ThemePreferenceProvider>
             <ThemeProvider value={navTheme}>
@@ -61,6 +63,7 @@ export default function RootLayout() {
             </ThemeProvider>
           </ThemePreferenceProvider>
         </ArabicScaleProvider>
+        </AuthProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

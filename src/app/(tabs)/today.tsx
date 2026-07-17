@@ -12,6 +12,7 @@ import { SakinaInvite } from "@/components/today/sakinaInvite";
 import { WeekStrip } from "@/components/today/weekStrip";
 import { Text } from "@/components/ui/text";
 import { VerseCard } from "@/components/verseCard";
+import { useAuth } from "@/lib/useAuth";
 import { ASMA_UL_HUSNA } from "@/data/curated/asmaulhusna";
 import { GREETING, REFLECTION } from "@/data/curated/today";
 import { VERSE_OF_THE_DAY } from "@/data/curated/verses";
@@ -20,6 +21,7 @@ import { useState } from "react";
 import { ScrollView, View } from "react-native";
 
 export default function Today() {
+  const { initials } = useAuth();
   const [bookmarked, setBookmarked] = useState(false);
 
   const now = new Date();
@@ -41,7 +43,7 @@ export default function Today() {
           <GreetingHeader
             date={date}
             greeting={GREETING}
-            initials="YA"
+            initials={initials}
             onAvatarPress={() => router.push("/profile")}
           />
         </FadeInView>
@@ -63,17 +65,14 @@ export default function Today() {
             <Text variant="translation" className="px-1 text-text-secondary">
               {REFLECTION}
             </Text>
+            <View className="flex-row flex-wrap gap-2 px-1">
+              <Chip label="Ask about this verse" onPress={() => router.push("/ask")} />
+              <Chip label="Read in context" onPress={() => router.push("/read")} />
+            </View>
           </View>
         </FadeInView>
 
-        <FadeInView delay={320}>
-          <View className="flex-row flex-wrap gap-2">
-            <Chip label="Ask about this verse" onPress={() => router.push("/ask")} />
-            <Chip label="Read in context" onPress={() => router.push("/read")} />
-          </View>
-        </FadeInView>
-
-        <FadeInView delay={420}>
+        <FadeInView delay={300}>
           <View className="gap-2.5">
             <Text variant="caption" className="text-text-muted">
               Today's name of Allah
@@ -82,7 +81,7 @@ export default function Today() {
           </View>
         </FadeInView>
 
-        <FadeInView delay={520}>
+        <FadeInView delay={400}>
           <SakinaInvite />
         </FadeInView>
       </ScrollView>

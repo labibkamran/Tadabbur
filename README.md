@@ -2,17 +2,47 @@
 
 **Bring your questions to the Qur'an.**
 
-Tadabbur is a Qur'an chat and reading app. You ask a question in plain language,
-and you read the answer in the text itself. The name means *tadabbur*, the
-reflective pondering of the Qur'an that the text asks of every believer. It is
-deliberately not *tafsir*, the scholarly discipline. The app points you toward the
-text; it never claims to interpret it for you.
+Tadabbur is a Qur'an chat and reading app for Android. You ask a question in plain
+language and read the answer in the text itself. The app points you toward the
+Qur'an; it never claims to interpret it for you.
 
-Built with Expo (React Native), NativeWind, and TypeScript.
+## Contents
 
-## Design Journey
+- [About the Application](#about-the-application)
+  - [The Surfaces](#the-surfaces)
+  - [Design Journey](#design-journey) — [Onboarding](#onboarding) · [Today](#today) · [Sakina](#sakina) · [Ask](#ask) · [Read](#read) · [Profile](#profile)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started) — [Prerequisites](#prerequisites) · [Installation](#installation) · [Running the App](#running-the-app)
+- [Environment Variables](#environment-variables)
+- [Backend](#backend)
 
-### Onboarding
+---
+
+## About the Application
+
+The name means *tadabbur*, the reflective pondering of the Qur'an that the text asks
+of every believer. It is deliberately not *tafsir*, the scholarly discipline. That
+one idea governs everything: every surface either hands you the text or points to it,
+and the one surface that speaks with a machine's voice always says, plainly, that it
+is a reflection and not a ruling.
+
+### The Surfaces
+
+| Surface | What it is | Talks to the model? |
+| --- | --- | --- |
+| **Today** | A calm home: the verse of the day, a name of Allah, a door to Sakina | No — curated, offline |
+| **Sakina** | A short guided session to sit with a feeling, built on a verse | No — curated, offline |
+| **Ask** | A question in plain language, answered by a reflection that points to verses | **Yes** — always, and always discloses |
+| **Read** | The full mushaf, searchable, verse by verse | No — bundled offline |
+| **Profile** | Who you are, Arabic size, theme, and the text's attribution | No |
+
+Everything except Ask works with no network at all. The whole Qur'an ships inside the
+app.
+
+### Design Journey
+
+#### Onboarding
 
 The onboarding sets the tone for the whole app: quiet and reflective, never loud.
 Early on we faced a clear choice about the visuals. Many faith apps lean on
@@ -35,7 +65,7 @@ and growth charts you often see elsewhere. The app opens with the Bismillah, and
 follows your phone's own light or dark setting so it feels at home either way. The
 guiding rule throughout is simple: point to the text, never perform.
 
-### Today
+#### Today
 
 Today is the first thing a person sees each time they open the app, so it sets the
 mood. We wanted it calm above all else, closer to a quiet moment than a busy home
@@ -59,7 +89,7 @@ And like the rest of the app, everything here is hand chosen and works offline.
 Nothing on this screen talks to the AI, so there is never anything to disclaim. The
 result is a home that feels full and warm without ever becoming a dashboard.
 
-### Sakina
+#### Sakina
 
 Sakina is for the harder moments, the ones that often come late at night when a
 person may not even have the words. It has two parts. First a quiet screen that
@@ -87,5 +117,173 @@ are sacred words, every one is checked against a trusted source before it is sho
 The goal was never to fix a feeling, only to sit beside it for a moment and point, as
 gently as it can, back to the text.
 
-*This covers onboarding, the Today screen, and Sakina. The journey for the remaining
-parts of the app will be added here as they are built.*
+#### Ask
+
+Ask is the one place in the app that answers in a machine's voice, and everything
+about it is arranged so that voice can never be mistaken for the text. The reflection
+is set in a plain sans typeface, the Qur'an in its own script, and the translation in
+a serif between them, three voices kept apart on purpose. The answer only ever
+points. It gathers a verse or two that bear on your question and hands them back, and
+it never explains the Arabic or hands down a ruling. Beneath every answer sits a
+short, permanent note, saying plainly that this is a reflection and not tafsir and
+that the verses themselves are the source, and it is never allowed below the fold.
+Tap any verse and it opens in the reader at that exact ayah, so every reflection has
+a floor you can walk to.
+
+We were careful with the smaller moments too. The answer arrives slowly, a pause and
+then the words settling in before the verses appear one by one, so it feels
+considered rather than vended. And when it cannot reach the model, the message stays
+plain. A timeout is not a spiritual event, and we would never dress a failure in
+scripture, so you get a quiet line and a way to try again.
+
+#### Read
+
+Read is the mushaf, and the whole of it lives inside the app. It never waits on a
+network, because the text a person came for should always be there. The index lists
+all 114 surahs, searchable by name, number, or meaning, and opening one gives the
+Arabic first and the translation a step beneath it, with the traditional end-of-verse
+mark carrying each ayah number rather than a badge of our own. The Bismillah rests as
+a quiet header above each surah, except where the mushaf itself differs. It is the
+first ayah of Al-Fatihah, and At-Tawbah has none. We followed the text, not a rule we
+preferred.
+
+This screen is also the floor beneath everything else. Every verse the app points to,
+whether in Ask or in Sakina or on Today, leads here, scrolled to the exact ayah with
+a soft highlight that fades as you arrive. That one link is what keeps the app honest.
+The reflection can only ever point, and this is where it points to. The Arabic is
+bundled and waited for, never a stand-in face, because the wrong letters in the
+Qur'an are a defect and not a loading state.
+
+#### Profile
+
+Profile is deliberately not a dashboard. It holds only what a person needs: who they
+are, the size of the Arabic, whether the app follows the phone or holds to light or
+dark, and, quietly at the bottom, where the text comes from. That last part carries
+more weight than it looks. A translation belongs to someone, so the app names it, and
+it names the source of the Arabic too, and the words are never presented as if they
+came from nowhere.
+
+The one real control here is Arabic size, and it does the thing most apps get wrong.
+As the letters grow, the space between the lines grows with them, so the vowel marks
+never collide. It reads as a design choice, but it is really a small act of care for
+the text. Everything else stays out of the way. You can use the whole app as a guest,
+and signing in is only there for those who want their reflections to follow them.
+
+*The same thread runs through every screen: point to the text, never perform.*
+
+---
+
+## Tech Stack
+
+- **Framework:** Expo SDK 57, React Native 0.86, React 19
+- **Routing:** Expo Router — file-based, typed routes
+- **Styling:** NativeWind 4 (Tailwind 3) with semantic color tokens and light/dark themes
+- **Language:** TypeScript
+- **Animation:** React Native Reanimated 4, Gesture Handler
+- **Auth & data:** Supabase (`@supabase/supabase-js`), consumed through a Next.js backend-for-frontend
+- **Icons:** Tabler icons + `react-native-svg`
+- **Fonts (bundled):** KFGQPC Uthmanic Hafs (Qur'an), Source Serif 4 (translation), Inter (UI and AI prose)
+- **Local storage:** AsyncStorage (settings, session), NetInfo (offline detection)
+
+---
+
+## Project Structure
+
+```
+src/
+  app/            Expo Router routes — onboarding, (tabs), thread, session, surah reader, auth callback
+  components/     UI — verse card, session beats, ask, today, ui primitives
+  data/curated/   Bundled offline content — full Qur'an (114 surahs), Sakina sessions, Asma ul Husna
+  lib/            Supabase client, auth context, BFF client, hooks (theme, arabic scale, online)
+  types/          Shared types — verse, thread, surah, onboarding
+assets/fonts/     Bundled Uthmanic Hafs
+scripts/          generateQuran.mjs — regenerates the bundled Qur'an from the source editions
+```
+
+The curated content in `data/curated/` never touches the network, which is why Today,
+Sakina, and Read can never hard-fail.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- **Node 20+** — Expo SDK 57 requires it; Node 18 will not build. With nvm: `nvm use 20`.
+- **To build the native app:** the Android SDK (platform 36, build-tools 36) plus a
+  connected device or an emulator. Alternatively, run in **Expo Go** with no native build.
+- **The backend running** — the app fetches profile data from the Next.js server (see
+  [Backend](#backend)). Google sign-in also needs the Supabase project configured.
+
+### Installation
+
+```bash
+cd Tadabbur
+nvm use 20
+npm install
+```
+
+Then create a `.env` file (see [Environment Variables](#environment-variables)).
+
+### Running the App
+
+```bash
+# Native build onto a connected device / emulator (needed for Google sign-in deep links)
+npm run android
+
+# Or a quick run in Expo Go — scan the QR with the Expo Go app
+npx expo start
+```
+
+Other scripts:
+
+| Command | Does |
+| --- | --- |
+| `npm start` | Start the Metro bundler |
+| `npm run android` | Build and install the Android dev client |
+| `npm run ios` | Build and install on iOS (not the primary target) |
+| `npm run web` | Run the web build |
+| `npm run lint` | Lint with Expo's config |
+| `npm test` | Type-check and run the Arabic-metrics test |
+
+---
+
+## Environment Variables
+
+Create `Tadabbur/.env`:
+
+```bash
+EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_xxxxxxxx
+EXPO_PUBLIC_API_URL=http://192.168.x.x:3000
+```
+
+| Variable | Purpose |
+| --- | --- |
+| `EXPO_PUBLIC_SUPABASE_URL` | Supabase project URL (Dashboard → Project Settings → API) |
+| `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Supabase publishable key — used for auth only; public by design and gated by RLS |
+| `EXPO_PUBLIC_API_URL` | Base URL of the Next.js backend. The phone must reach it, so use your machine's **LAN IP**, not `localhost` |
+
+`EXPO_PUBLIC_` variables are inlined into the app bundle, so only public values belong
+here. The Supabase **secret** key lives on the server, never in the app. Env changes
+require restarting the bundler.
+
+---
+
+## Backend
+
+The app is a client to a Next.js **backend-for-frontend** in `../tadabbur-web`, which
+is the only thing that talks to Supabase (Postgres + Auth + row-level security). The
+app signs in with Supabase directly (Google OAuth), then sends its token to the Next.js
+API, which verifies it and returns data. Curated surfaces work fully offline; only Ask
+calls a model, and that is currently mocked.
+
+```bash
+cd ../tadabbur-web
+npm install
+npm run dev   # serves on http://localhost:3000
+```
+
+Server environment (`tadabbur-web/.env.local`) holds `SUPABASE_URL` and the
+server-only `SUPABASE_SERVICE_ROLE_KEY` (the `sb_secret_…` key). See
+[`BACKEND.md`](./BACKEND.md) for the full backend build specification.

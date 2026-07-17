@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Text } from "@/components/ui/text";
 import { ASK_SUGGESTIONS } from "@/data/ask";
 import { GREETING } from "@/data/curated/today";
+import { useAuth } from "@/lib/useAuth";
 import { useKeyboardHeight } from "@/lib/useKeyboardHeight";
 import { cn } from "@/lib/utils";
 import { IconArrowUp, IconHistory } from "@tabler/icons-react-native";
@@ -21,6 +22,7 @@ import { useState } from "react";
 import { Pressable, View } from "react-native";
 
 export default function Ask() {
+  const { initials } = useAuth();
   const [text, setText] = useState("");
   const keyboard = useKeyboardHeight();
   const canSend = text.trim().length > 0;
@@ -56,7 +58,7 @@ export default function Ask() {
             <Avatar alt="Profile">
               <AvatarFallback>
                 <Text variant="label" className="text-brand">
-                  YA
+                  {initials}
                 </Text>
               </AvatarFallback>
             </Avatar>
