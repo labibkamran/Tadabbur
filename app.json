@@ -13,7 +13,8 @@
         "foregroundImage": "./assets/images/tadabbur/tadabbur-icon-foreground.png",
         "backgroundImage": "./assets/images/tadabbur/tadabbur-icon-background.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.Tadabbur"
     },
     "web": {
       "output": "static",
@@ -40,6 +41,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "aaadaab8-aafc-4651-9965-8b8b859b978b"
+      }
     }
   }
 }
