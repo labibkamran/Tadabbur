@@ -6,6 +6,8 @@ Tadabbur is a Qur'an chat and reading app for Android. You ask a question in pla
 language and read the answer in the text itself. The app points you toward the
 Qur'an; it never claims to interpret it for you.
 
+**▶ [Watch the walkthrough](https://www.loom.com/share/3258128cc56c4d95b8bd4c54a2747d7f)** · **[Website](https://tadabbur-web-seven.vercel.app)** · 
+
 ## Contents
 
 - [About the Application](#about-the-application)

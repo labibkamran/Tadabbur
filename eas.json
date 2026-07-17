@@ -9,7 +9,12 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://ydqqbzxfquqvqanqjibc.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_XcqetAI_MXr7e-zQTZLc3g_Y2cBop4y",
+        "EXPO_PUBLIC_API_URL": "https://tadabbur-web-seven.vercel.app"
+      }
     },
     "production": {
       "autoIncrement": true
