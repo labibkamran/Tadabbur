@@ -9,10 +9,12 @@ import { AccessibilityInfo, Animated } from "react-native";
 export function FadeInView({
   delay = 0,
   rise = 10,
+  flex = false,
   children,
 }: {
   delay?: number;
   rise?: number;
+  flex?: boolean;
   children: React.ReactNode;
 }) {
   const v = useRef(new Animated.Value(0)).current;
@@ -30,6 +32,7 @@ export function FadeInView({
   return (
     <Animated.View
       style={{
+        flex: flex ? 1 : undefined,
         opacity: v,
         transform: [{ translateY: v.interpolate({ inputRange: [0, 1], outputRange: [rise, 0] }) }],
       }}
